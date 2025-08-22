@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/Logo-Light-Solid.svg">
+  <title>Gema Nusa - Website Komunitas Sosial</title>
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-inter bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Hero -->
+  <div id="hero"></div>
+
+  <!-- About Section -->
+  <div id="about-section"></div>
+
+  <script>
+    // Load partials
+    async function loadHTML(id, file) {
+      let res = await fetch(file);
+      document.getElementById(id).innerHTML = await res.text();
+    }
+    loadHTML("navbar", "partials/navbar.html");
+    loadHTML("hero", "components/hero-section.html");
+    loadHTML("about-section", "components/about-section.html");
+  </script>
+</body>
+</html>
